@@ -5,13 +5,14 @@ class Point:
         self.x = x
         self.y = y
 
-    @classmethod
-    def zero(cls):
-        return cls(0, 0)
+    def __str__(self):
+        return f'({self.x}, {self.y})'
 
-    def draw(self):
-        print(f'Point: ({self.x}, {self.y})')
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
 
 
-point = Point.zero()
-point.draw()
+point = Point(3, 3)
+another = Point(2, 2)
+
+print(point + another)
